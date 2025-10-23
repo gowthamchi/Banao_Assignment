@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .dashboard-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .welcome-message {
+            font-size: 20px;
+            color: #34495e;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .info-value {
+            color: #3498db;
+            font-size: 18px;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header-section">
+            <h1>Doctor Dashboard</h1>
+        </div>
+        
+        <div class="welcome-message">
+            <p>Hello, Dr. {{ first_name }} {{ last_name }}!</p>
+        </div>
+
+        <div class="info-box">
+            <p><span class="info-label">Username:</span> <span class="info-value">{{ username }}</span></p>
+        </div>
+
+        <div class="info-box">
+            <p><span class="info-label">Email:</span> <span class="info-value">{{ email }}</span></p>
+        </div>
+
+        <button class="logout-btn" onclick="window.location.href='{% url 'doctor_logout' %}'">Logout</button>
+    </div>
+</body>
+</html>
